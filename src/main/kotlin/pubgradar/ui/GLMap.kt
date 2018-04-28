@@ -1888,9 +1888,8 @@ class GLMap(private val jsettings : Settings.jsonsettings) : InputAdapter() , Ap
             val equippedWeapons = actorHasWeapons[actor.netGUID]
             val df = DecimalFormat("###.#")
             var weapon = ""
-            val specCount = (spectatedCount[actor.netGUID]) ?:0
-            if(specCount > 0)
-                println("${name}'s count = ${specCount}")
+            if(spectatedCount[actor.netGUID] != null &&  spectatedCount[actor.netGUID] != 0 )
+                println("spectated: "+spectatedCount[actor.netGUID] +" N:"+name)
             if (equippedWeapons != null)
             {
                 for (w in equippedWeapons)
@@ -1911,8 +1910,7 @@ class GLMap(private val jsettings : Settings.jsonsettings) : InputAdapter() , Ap
                 if (element == null||element._1.isBlank()) continue
                 items += "${element._1}->${element._2}\n"
             }
-//            if(actorSpec[actor.netGUID] != null &&  actorSpec[actor.netGUID] != 0 )
-//                println("spectated: "+actorSpec[actor.netGUID] +" N:"+name)
+
             if (name != "")
                 query(name, 1000)
             var bIshacker = 0
