@@ -353,6 +353,13 @@ Item_Head_G_01_Lv3_C
   orig: 64, 64
   offset: 0, 0
   index: -1
+Item_JerryCan_C
+  rotate: false
+  xy: 64, 0
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
 Item_Heal_Bandage_C
   rotate: false
   xy: 128, 0
@@ -622,6 +629,62 @@ Item_Weapon_Win94_C
 Item_Weapon_Winchester_C
   rotate: false
   xy: 0, 576
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+Item_Weapon_FNFal_C
+  rotate: false
+  xy: 64, 0
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+Item_Attach_Weapon_Upper_PM2_01_C
+  rotate: false
+  xy: 64, 0
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+Item_Attach_Weapon_Muzzle_Duckbill_C
+  rotate: false
+  xy: 64, 0
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+Item_Attach_Weapon_Lower_ThumbGrip_C
+  rotate: false
+  xy: 64, 0
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+Item_Attach_Weapon_Lower_LightweightForeGrip_C
+  rotate: false
+  xy: 64, 0
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+Item_Attach_Weapon_Lower_HalfGrip_C
+  rotate: false
+  xy: 64, 0
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+Item_Attach_Weapon_Upper_Scope3x_C
+  rotate: false
+  xy: 64, 0
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+Item_Attach_Weapon_Upper_Scope6x_C
+  rotate: false
+  xy: 64, 0
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
