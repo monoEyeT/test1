@@ -1749,7 +1749,7 @@ class GLMap(private val jsettings : Settings.jsonsettings) : InputAdapter() , Ap
             "Item_Attach_Weapon_Stock_SniperRifle_CheekPad_C"	to	jsettings.CheekSR	,
             "Item_Attach_Weapon_Stock_SniperRifle_BulletLoops_C"	to	jsettings.LoopsSR	,
             "Item_Attach_Weapon_Upper_PM2_01_C" to jsettings.PM2,
-            "Item_Attach_Weapon_Muzzle_Duckbill_C" to jsettings.Duckbill,
+           // "Item_Attach_Weapon_Muzzle_Duckbill_C" to jsettings.Duckbill,
             "Item_Attach_Weapon_Lower_ThumbGrip_C" to jsettings.ThumbGrip,
             "Item_Attach_Weapon_Lower_LightweightForeGrip_C" to jsettings.LightWeightForeGrip,
             "Item_Attach_Weapon_Lower_HalfGrip_C" to jsettings.HalfGrip,
@@ -1811,6 +1811,7 @@ class GLMap(private val jsettings : Settings.jsonsettings) : InputAdapter() , Ap
         sorted.sortBy {
             order[it._2]
         }
+        var strtemp = ""
         sorted.forEach{
             if (it._3 && camera.zoom > itemZoomThreshold) return@forEach
             val (x, y, itemHeight) = it._1
@@ -1820,7 +1821,7 @@ class GLMap(private val jsettings : Settings.jsonsettings) : InputAdapter() , Ap
             val (sx , sy) = mapToWindow(x , y)
             if(itemSetting.contains(items) == false) println(items+"Setting is NULL")
             if((filterEnableItem ==1)|| itemSetting.contains(items)&&itemSetting[items]==true) {
-                var strtemp = ""
+
                 when {
                     itemHeight*100 > (selfCoords.z + 200)-> strtemp = "∧"
                     itemHeight*100 < (selfCoords.z - 100) -> strtemp = "∨"
@@ -1895,6 +1896,7 @@ class GLMap(private val jsettings : Settings.jsonsettings) : InputAdapter() , Ap
             val equippedWeapons = actorHasWeapons[actor.netGUID]
             val df = DecimalFormat("###.#")
             var weapon = ""
+            var zDiff = ""
 //            if(spectatedCount[actor.netGUID] != null &&  spectatedCount[actor.netGUID] != 0 )
 //                println("spectated: "+spectatedCount[actor.netGUID] +" N:"+name)
             if (equippedWeapons != null)
@@ -2037,11 +2039,11 @@ class GLMap(private val jsettings : Settings.jsonsettings) : InputAdapter() , Ap
 
                 }
                 3 -> {
-                    val zDiff =
+
                             when {
-                                (z > (selfCoords.z + 200)) -> "A"
-                                (z < (selfCoords.z - 100)) -> "V"
-                                else -> "o"
+                                (z > (selfCoords.z + 200)) -> zDiff ="A"
+                                (z < (selfCoords.z - 100)) ->zDiff = "V"
+                                else ->zDiff = "o"
                             }
                     //println("s,o = ${selfCoords.x},${selfCoords.y},${selfCoords.z}\n ${x},${y},${z}")
                     //checkPlayerLOC(players)

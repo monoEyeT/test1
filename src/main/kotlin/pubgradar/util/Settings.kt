@@ -56,6 +56,7 @@ class Settings
            val Aimpoint : Boolean = true,
            val CQBSS : Boolean = true,
            val ACOG : Boolean = true,
+           val PM2 : Boolean = true,
            val SC3x : Boolean = true,
            val SC6x : Boolean = true,
            //
@@ -122,8 +123,7 @@ class Settings
            val PainKiller : Boolean = true,
            val EnergyDrink : Boolean = true,
            val Syringe : Boolean = true,
-           // FUEL
-           val JerryCan : Boolean = true,
+
            //
            // Attachments
            //
@@ -147,7 +147,6 @@ class Settings
            var CompensatorSMG : Boolean = false,
            var Foregrip : Boolean = true,
            var AngledForegrip : Boolean = true,
-           val PM2 : Boolean = true,
            val Duckbill : Boolean = true,
            val ThumbGrip : Boolean = true,
            val LightWeightForeGrip : Boolean = true,

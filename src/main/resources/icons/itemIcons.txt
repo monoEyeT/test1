@@ -17,7 +17,7 @@ Item_Ammo_9mm_C
   orig: 64, 64
   offset: 0, 0
   index: -1
-  Item_Ammo_45ACP_C
+Item_Ammo_45ACP_C
   rotate: false
   xy: 128, 256
   size: 64, 64
@@ -206,6 +206,34 @@ Item_Attach_Weapon_Stock_SniperRifle_CheekPad_C
   orig: 64, 64
   offset: 0, 0
   index: -1
+Item_Attach_Weapon_Upper_Scope3x_C
+  rotate: false
+  xy: 384, 768
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+Item_Attach_Weapon_Upper_Scope6x_C
+  rotate: false
+  xy: 448, 768
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+Item_Attach_Weapon_Upper_PM2_01_C
+  rotate: false
+  xy: 320, 768
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+Item_Attach_Weapon_Upper_CQBSS_C
+  rotate: false
+  xy: 256, 768
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
 Item_Attach_Weapon_Upper_ACOG_01_C
   rotate: false
   xy: 192, 768
@@ -220,9 +248,9 @@ Item_Attach_Weapon_Upper_Aimpoint_C
   orig: 64, 64
   offset: 0, 0
   index: -1
-Item_Attach_Weapon_Upper_CQBSS_C
+Item_Attach_Weapon_Upper_Holosight_C
   rotate: false
-  xy: 256, 768
+  xy: 64,768
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
@@ -230,13 +258,6 @@ Item_Attach_Weapon_Upper_CQBSS_C
 Item_Attach_Weapon_Upper_DotSight_01_C
   rotate: false
   xy: 0, 768
-  size: 64, 64
-  orig: 64, 64
-  offset: 0, 0
-  index: -1
-Item_Attach_Weapon_Upper_Holosight_C
-  rotate: false
-  xy: 64,768
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
@@ -398,6 +419,13 @@ Item_Weapon_AUG_C
 Item_Weapon_AWM_C
   rotate: false
   xy: 448, 576
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+Item_Weapon_FNFal_C
+  rotate: false
+  xy: 512, 576
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
@@ -633,58 +661,23 @@ Item_Weapon_Winchester_C
   orig: 64, 64
   offset: 0, 0
   index: -1
-Item_Weapon_FNFal_C
-  rotate: false
-  xy: 64, 0
-  size: 64, 64
-  orig: 64, 64
-  offset: 0, 0
-  index: -1
-Item_Attach_Weapon_Upper_PM2_01_C
-  rotate: false
-  xy: 64, 0
-  size: 64, 64
-  orig: 64, 64
-  offset: 0, 0
-  index: -1
-Item_Attach_Weapon_Muzzle_Duckbill_C
-  rotate: false
-  xy: 64, 0
-  size: 64, 64
-  orig: 64, 64
-  offset: 0, 0
-  index: -1
 Item_Attach_Weapon_Lower_ThumbGrip_C
   rotate: false
-  xy: 64, 0
+  xy: 64, 896
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: -1
 Item_Attach_Weapon_Lower_LightweightForeGrip_C
   rotate: false
-  xy: 64, 0
+  xy: 0, 896
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: -1
 Item_Attach_Weapon_Lower_HalfGrip_C
   rotate: false
-  xy: 64, 0
-  size: 64, 64
-  orig: 64, 64
-  offset: 0, 0
-  index: -1
-Item_Attach_Weapon_Upper_Scope3x_C
-  rotate: false
-  xy: 64, 0
-  size: 64, 64
-  orig: 64, 64
-  offset: 0, 0
-  index: -1
-Item_Attach_Weapon_Upper_Scope6x_C
-  rotate: false
-  xy: 64, 0
+  xy: 128, 896
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
