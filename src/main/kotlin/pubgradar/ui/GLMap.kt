@@ -1888,7 +1888,7 @@ class GLMap(private val jsettings : Settings.jsonsettings) : InputAdapter() , Ap
             val equippedWeapons = actorHasWeapons[actor.netGUID]
             val df = DecimalFormat("###.#")
             var weapon = ""
-            val specCount = spectatedCount[actor.netGUID] ?:0
+            val specCount = (spectatedCount[actor.netGUID]) ?:0
             if(specCount > 0)
                 println("${name}'s count = ${specCount}")
             if (equippedWeapons != null)

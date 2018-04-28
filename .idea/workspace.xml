@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="e9dd8cb5-4a4f-47d4-98d7-d0db5b71ecb6" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/pubgradar/deserializer/PacketParser.kt" afterPath="$PROJECT_DIR$/src/main/kotlin/pubgradar/deserializer/PacketParser.kt" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/pubgradar/ui/GLMap.kt" afterPath="$PROJECT_DIR$/src/main/kotlin/pubgradar/ui/GLMap.kt" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -27,8 +26,8 @@
       <file leaf-file-name="CharacterCMD.kt" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/kotlin/pubgradar/struct/CMD/CharacterCMD.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="440">
-              <caret line="177" column="18" lean-forward="true" selection-start-line="177" selection-start-column="18" selection-end-line="177" selection-end-column="18" />
+            <state relative-caret-position="70">
+              <caret line="159" column="17" lean-forward="false" selection-start-line="159" selection-start-column="17" selection-end-line="159" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -38,7 +37,17 @@
         <entry file="file://$PROJECT_DIR$/src/main/kotlin/pubgradar/ui/GLMap.kt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="263">
-              <caret line="1890" column="0" lean-forward="true" selection-start-line="1890" selection-start-column="0" selection-end-line="1892" selection-end-column="57" />
+              <caret line="1892" column="57" lean-forward="false" selection-start-line="1892" selection-start-column="57" selection-end-line="1892" selection-end-column="57" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ActorChannel.kt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/kotlin/pubgradar/deserializer/channel/ActorChannel.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="28" column="14" lean-forward="false" selection-start-line="28" selection-start-column="14" selection-end-line="28" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -79,16 +88,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="269">
               <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DeathDropItemPackageCMD.kt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/kotlin/pubgradar/struct/CMD/DeathDropItemPackageCMD.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="26">
-              <caret line="7" column="7" lean-forward="false" selection-start-line="7" selection-start-column="7" selection-end-line="7" selection-end-column="7" />
               <folding />
             </state>
           </provider>
@@ -196,9 +195,9 @@
         <option value="$PROJECT_DIR$/src/main/kotlin/pubgradar/struct/CMD/DroppedItemInteractionComponentCMD.kt" />
         <option value="$PROJECT_DIR$/src/main/kotlin/pubgradar/struct/Actor.kt" />
         <option value="$PROJECT_DIR$/src/main/kotlin/pubgradar/util/Settings.kt" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/pubgradar/struct/CMD/CharacterCMD.kt" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/pubgradar/ui/GLMap.kt" />
         <option value="$PROJECT_DIR$/src/main/kotlin/pubgradar/deserializer/PacketParser.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/pubgradar/ui/GLMap.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/pubgradar/struct/CMD/CharacterCMD.kt" />
       </list>
     </option>
   </component>
@@ -516,7 +515,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30777538" sideWeight="0.6805112" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32960597" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30777538" sideWeight="0.31948882" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30777538" sideWeight="0.31948882" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32897604" sideWeight="0.49417248" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -819,14 +818,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/pubgradar/deserializer/channel/ActorChannel.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1641">
-          <caret line="110" column="15" lean-forward="false" selection-start-line="110" selection-start-column="10" selection-end-line="110" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/kotlin/pubgradar/struct/CMD/WeaponCMD.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="19">
@@ -938,14 +929,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/pubgradar/ui/GLMap.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="263">
-          <caret line="1890" column="0" lean-forward="true" selection-start-line="1890" selection-start-column="0" selection-end-line="1892" selection-end-column="57" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/kotlin/pubgradar/struct/CMD/ActorCMD.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
@@ -962,10 +945,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/pubgradar/deserializer/channel/ActorChannel.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="28" column="14" lean-forward="false" selection-start-line="28" selection-start-column="14" selection-end-line="28" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/pubgradar/ui/GLMap.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="263">
+          <caret line="1892" column="57" lean-forward="false" selection-start-line="1892" selection-start-column="57" selection-end-line="1892" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/kotlin/pubgradar/struct/CMD/CharacterCMD.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="177" column="18" lean-forward="true" selection-start-line="177" selection-start-column="18" selection-end-line="177" selection-end-column="18" />
+        <state relative-caret-position="70">
+          <caret line="159" column="17" lean-forward="false" selection-start-line="159" selection-start-column="17" selection-end-line="159" selection-end-column="17" />
           <folding />
         </state>
       </provider>
