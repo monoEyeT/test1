@@ -560,12 +560,13 @@ class GLMap(private val jsettings : Settings.jsonsettings) : InputAdapter() , Ap
         redzoneBombIcon = pawnAtlas.findRegion("redzoneBomb")
         vehicleIcons = mapOf(
                 TwoSeatBoat to pawnAtlas.findRegion("AquaRail"),
-                SixSeatBoat to pawnAtlas.findRegion("pg"),
+            SixSeatBoat to pawnAtlas.findRegion("boat"),
                 Dacia to pawnAtlas.findRegion("dacia"),
                 Uaz to pawnAtlas.findRegion("uaz"),
                 Pickup to pawnAtlas.findRegion("pickup"),
                 Buggy to pawnAtlas.findRegion("buggy"),
-                Bike to pawnAtlas.findRegion("motor"),
+            Bike to pawnAtlas.findRegion("bike"),
+            SideCar to pawnAtlas.findRegion("bike"),
                 Bus to pawnAtlas.findRegion("bus"),
                 Plane to pawnAtlas.findRegion("plane")
         )
@@ -1694,13 +1695,6 @@ class GLMap(private val jsettings : Settings.jsonsettings) : InputAdapter() , Ap
     }
 
     val itemSetting: Map<String, Boolean> = hashMapOf(
-            //sight
-            "Item_Attach_Weapon_Upper_Holosight_C"	to	jsettings.Holosight	,
-            "Item_Attach_Weapon_Upper_DotSight_01_C"	to	jsettings.DotSight	,
-            "Item_Attach_Weapon_Upper_Aimpoint_C"	to	jsettings.Aimpoint	,
-            "Item_Attach_Weapon_Upper_CQBSS_C"	to	jsettings.CQBSS	,
-            "Item_Attach_Weapon_Upper_ACOG_01_C"	to	jsettings.ACOG	,
-
             // Armor Etc
             "Item_Armor_E_01_Lv1_C"	to	jsettings.Level1Armor	,
             "Item_Head_E_01_Lv1_C"	to	jsettings.Level1Head	,
@@ -1717,7 +1711,6 @@ class GLMap(private val jsettings : Settings.jsonsettings) : InputAdapter() , Ap
             "Item_Back_C_02_Lv3_C"	to	jsettings.Level3Back	,
             "Item_Back_C_01_Lv3_C"	to	jsettings.Level3Back1	,
 
-
             // Pistols
             "Item_Weapon_G18_C"	to	jsettings.G18	,
             "Item_Weapon_Rhino_C"	to	jsettings.Rhino45	,
@@ -1733,62 +1726,75 @@ class GLMap(private val jsettings : Settings.jsonsettings) : InputAdapter() , Ap
             "Item_Boost_PainKiller_C"	to	jsettings.PainKiller	,
             "Item_Boost_EnergyDrink_C"	to	jsettings.EnergyDrink	,
             "Item_Boost_AdrenalineSyringe_C"	to	jsettings.Syringe	,
-
+            "Item_JerryCan_C" to jsettings.JerryCan,
             // Attachments
-            "Item_Attach_Weapon_Magazine_ExtendedQuickDraw_SniperRifle_C"	to	jsettings.QDSnipe	,
-            "Item_Attach_Weapon_Magazine_Extended_SniperRifle_C"	to	jsettings.ExSR	,
+            "Item_Attach_Weapon_Lower_AngledForeGrip_C"	to	jsettings.AngledForegrip	,
+            "Item_Attach_Weapon_Lower_Foregrip_C"	to	jsettings.Foregrip	,
+            "Item_Attach_Weapon_Magazine_Extended_Large_C"	to	jsettings.ExAR	,
             "Item_Attach_Weapon_Magazine_Extended_Medium_C"	to	jsettings.ExSMG	,
+            "Item_Attach_Weapon_Magazine_Extended_SniperRifle_C"	to	jsettings.ExSR	,
             "Item_Attach_Weapon_Magazine_ExtendedQuickDraw_Large_C"	to	jsettings.ExQuickAR	,
             "Item_Attach_Weapon_Magazine_ExtendedQuickDraw_Medium_C"	to	jsettings.ExtQuickSMG	,
-            "Item_Attach_Weapon_Magazine_Extended_Large_C"	to	jsettings.ExAR	,
-            "Item_Attach_Weapon_Stock_SniperRifle_CheekPad_C"	to	jsettings.CheekSR	,
-            "Item_Attach_Weapon_Stock_SniperRifle_BulletLoops_C"	to	jsettings.LoopsSR	,
-            "Item_Attach_Weapon_Stock_AR_Composite_C"	to	jsettings.StockAR	,
-            "Item_Attach_Weapon_Muzzle_Suppressor_SniperRifle_C"	to	jsettings.SuppressorSR	,
-            "Item_Attach_Weapon_Muzzle_Suppressor_Large_C"	to	jsettings.SuppressorAR	,
-            "Item_Attach_Weapon_Muzzle_Suppressor_Medium_C"	to	jsettings.SuppressorSMG	,
-            "Item_Attach_Weapon_Muzzle_FlashHider_SniperRifle_C" to jsettings.FlashHiderSR,
-            "Item_Attach_Weapon_Muzzle_FlashHider_Medium_C"	to	jsettings.FlashHiderSMG	,
-            "Item_Attach_Weapon_Muzzle_FlashHider_Large_C"	to	jsettings.FlashHiderAR	,
-            "Item_Attach_Weapon_Muzzle_Compensator_SniperRifle_C" to jsettings.CompensatorSR,
+            "Item_Attach_Weapon_Magazine_ExtendedQuickDraw_SniperRifle_C"	to	jsettings.QDSnipe	,
             "Item_Attach_Weapon_Muzzle_Compensator_Large_C" to jsettings.CompensatorAR,
             "Item_Attach_Weapon_Muzzle_Compensator_Medium_C"	to	jsettings.CompensatorSMG	,
-            "Item_Attach_Weapon_Lower_Foregrip_C"	to	jsettings.Foregrip	,
-            "Item_Attach_Weapon_Lower_AngledForeGrip_C"	to	jsettings.AngledForegrip	,
-
+            "Item_Attach_Weapon_Muzzle_Compensator_SniperRifle_C" to jsettings.CompensatorSR,
+            "Item_Attach_Weapon_Muzzle_FlashHider_Large_C"	to	jsettings.FlashHiderAR	,
+            "Item_Attach_Weapon_Muzzle_FlashHider_Medium_C"	to	jsettings.FlashHiderSMG	,
+            "Item_Attach_Weapon_Muzzle_FlashHider_SniperRifle_C" to jsettings.FlashHiderSR,
+            "Item_Attach_Weapon_Muzzle_Suppressor_Large_C"	to	jsettings.SuppressorAR	,
+            "Item_Attach_Weapon_Muzzle_Suppressor_Medium_C"	to	jsettings.SuppressorSMG	,
+            "Item_Attach_Weapon_Muzzle_Suppressor_SniperRifle_C"	to	jsettings.SuppressorSR	,
+            "Item_Attach_Weapon_Stock_AR_Composite_C"	to	jsettings.StockAR	,
+            "Item_Attach_Weapon_Stock_SniperRifle_CheekPad_C"	to	jsettings.CheekSR	,
+            "Item_Attach_Weapon_Stock_SniperRifle_BulletLoops_C"	to	jsettings.LoopsSR	,
+            "Item_Attach_Weapon_Upper_PM2_01_C" to jsettings.PM2,
+            "Item_Attach_Weapon_Muzzle_Duckbill_C" to jsettings.Duckbill,
+            "Item_Attach_Weapon_Lower_ThumbGrip_C" to jsettings.ThumbGrip,
+            "Item_Attach_Weapon_Lower_LightweightForeGrip_C" to jsettings.LightWeightForeGrip,
+            "Item_Attach_Weapon_Lower_HalfGrip_C" to jsettings.HalfGrip,
+            //sight
+            "Item_Attach_Weapon_Upper_Holosight_C"	to	jsettings.Holosight	,
+            "Item_Attach_Weapon_Upper_DotSight_01_C"	to	jsettings.DotSight	,
+            "Item_Attach_Weapon_Upper_Aimpoint_C"	to	jsettings.Aimpoint	,
+            "Item_Attach_Weapon_Upper_CQBSS_C"	to	jsettings.CQBSS	,
+            "Item_Attach_Weapon_Upper_ACOG_01_C"	to	jsettings.ACOG	,
+            "Item_Attach_Weapon_Upper_Scope3x_C"  to jsettings.SC3x,
+            "Item_Attach_Weapon_Upper_Scope6x_C"  to jsettings.SC6x,
             // Decent Weapons
-            "Item_Weapon_M16A4_C"	to	jsettings.M16A4	,
-            "Item_Weapon_AWM_C"	to	jsettings.AWM	,
-            "Item_Weapon_M24_C"	to	jsettings.M24	,
-            "Item_Weapon_Kar98k_C"	to	jsettings.Kar98k	,
+            "Item_Weapon_AK47_C"	to	jsettings.AK47	,
             "Item_Weapon_AUG_C"	to	jsettings.AUG	,
-            "Item_Weapon_M249_C"	to	jsettings.M249	,
-            "Item_Weapon_Mk14_C"	to	jsettings.MK14	,
+            "Item_Weapon_AWM_C"	to	jsettings.AWM	,
+            "Item_Weapon_Berreta686_C"	to	jsettings.Berreta686	,
+            "Item_Weapon_DP28_C"	to	jsettings.DP28	,
             "Item_Weapon_Groza_C"	to	jsettings.Groza	,
             "Item_Weapon_HK416_C"	to	jsettings.HK416	,
-            "Item_Weapon_SCAR-L_C"	to	jsettings.SCARL	,
+            "Item_Weapon_Kar98k_C"	to	jsettings.Kar98k	,
+            "Item_Weapon_M16A4_C"	to	jsettings.M16A4	,
+            "Item_Weapon_M24_C"	to	jsettings.M24	,
+            "Item_Weapon_M249_C"	to	jsettings.M249	,
             "Item_Weapon_Mini14_C"	to	jsettings.Mini14	,
-            "Item_Weapon_SKS_C"	to	jsettings.SKS	,
-            "Item_Weapon_AK47_C"	to	jsettings.AK47	,
-            "Item_Weapon_DP28_C"	to	jsettings.DP28	,
+            "Item_Weapon_Mk14_C"	to	jsettings.MK14	,
             "Item_Weapon_Saiga12_C"	to	jsettings.Saiga12	,
-            "Item_Weapon_UMP_C"	to	jsettings.UMP	,
-            "Item_Weapon_Vector_C"	to	jsettings.Vector	,
-            "Item_Weapon_UZI_C"	to	jsettings.UZI	,
-            "Item_Weapon_VSS_C"	to	jsettings.VSS	,
+            "Item_Weapon_SCAR-L_C"	to	jsettings.SCARL	,
+            "Item_Weapon_SKS_C"	to	jsettings.SKS	,
             "Item_Weapon_Thompson_C"	to	jsettings.Thompson	,
-            "Item_Weapon_Berreta686_C"	to	jsettings.Berreta686	,
-            "Item_Weapon_Winchester_C"	to	jsettings.Winchester	,
+            "Item_Weapon_UMP_C"	to	jsettings.UMP	,
+            "Item_Weapon_UZI_C"	to	jsettings.UZI	,
+            "Item_Weapon_Vector_C"	to	jsettings.Vector	,
+            "Item_Weapon_VSS_C"	to	jsettings.VSS	,
             "Item_Weapon_Win94_C"	to	jsettings.Win94	,
-
-            "Item_Ammo_762mm_C"	to	jsettings.Ammo_762mm	,
-            "Item_Ammo_556mm_C"	to	jsettings.Ammo_556mm	,
-            "Item_Ammo_300Magnum_C"	to	jsettings.Ammo_300Magnum	,
+            "Item_Weapon_Winchester_C"	to	jsettings.Winchester	,
+            "Item_Weapon_FNFal_C"	to	jsettings.FNFal ,
             "Item_Weapon_Pan_C"	to	jsettings.Weapon_Pan	,
-            "Item_Ammo_9mm_C"	to	jsettings.Ammo_9mm	,
-            "Item_Ammo_45ACP_C"	to	jsettings.Ammo_45ACP	,
-            "Item_Ammo_Flare_C"	to	jsettings.Ammo_Flare	,
+
             "Item_Ammo_12Guage_C"	to	jsettings.Ammo_12Guage,
+            "Item_Ammo_300Magnum_C"	to	jsettings.Ammo_300Magnum	,
+            "Item_Ammo_45ACP_C"	to	jsettings.Ammo_45ACP	,
+            "Item_Ammo_556mm_C"	to	jsettings.Ammo_556mm	,
+            "Item_Ammo_762mm_C"	to	jsettings.Ammo_762mm	,
+            "Item_Ammo_9mm_C"	to	jsettings.Ammo_9mm	,
+            "Item_Ammo_Flare_C"	to	jsettings.Ammo_Flare	,
 
             "Item_Weapon_Grenade_C" to	jsettings.Grenade,
             "Item_Weapon_FlashBang_C" to	jsettings.FlashBang,
@@ -1796,6 +1802,7 @@ class GLMap(private val jsettings : Settings.jsonsettings) : InputAdapter() , Ap
             "Item_Weapon_Molotov_C" to	jsettings.Molotov,
             "Item_Ghillie_01_C" to jsettings.Ghillie,
             "Item_Ghillie_02_C" to jsettings.Ghillie
+
     )
 
     private fun SpriteBatch.drawItem()
@@ -1888,8 +1895,8 @@ class GLMap(private val jsettings : Settings.jsonsettings) : InputAdapter() , Ap
             val equippedWeapons = actorHasWeapons[actor.netGUID]
             val df = DecimalFormat("###.#")
             var weapon = ""
-            if(spectatedCount[actor.netGUID] != null &&  spectatedCount[actor.netGUID] != 0 )
-                println("spectated: "+spectatedCount[actor.netGUID] +" N:"+name)
+//            if(spectatedCount[actor.netGUID] != null &&  spectatedCount[actor.netGUID] != 0 )
+//                println("spectated: "+spectatedCount[actor.netGUID] +" N:"+name)
             if (equippedWeapons != null)
             {
                 for (w in equippedWeapons)

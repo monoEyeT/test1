@@ -96,7 +96,8 @@ class Item
           "Item_Ammo_45ACP_C" to count() ,
           "Item_Ammo_12Guage_C" to count(),
           "Item_Weapon_FlareGun_C" to count(),
-          "Item_Ammo_Flare_C" to count()
+          "Item_Ammo_Flare_C" to count(),
+           "Item_JerryCan_C" to count()
 
       )
 
@@ -105,7 +106,8 @@ class Item
               "Boost" to mapOf(
                   "PainKiller" to "(PainKiller)" ,
                   "EnergyDrink" to "(EnergyDrink)" ,
-                  "Adrenaline" to "(Adrenaline)"
+                  "Adrenaline" to "(Adrenaline)",
+                      "JerryCan" to "(JerryCan)"
                               ) ,
               "Heal" to mapOf(
                   "FirstAid" to "(FirstAid)" ,
