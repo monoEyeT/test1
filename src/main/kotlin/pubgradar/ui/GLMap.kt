@@ -1204,7 +1204,7 @@ class GLMap(private val jsettings : Settings.jsonsettings) : InputAdapter() , Ap
     {
 
         parachutes?.forEach {
-            val (actor, x, y,z, dir) = it
+            val (actor, x, y, z, dir) = it
             val (sx, sy) = Vector2(x, y).mapToWindow()
             spriteBatch.draw(
                     parachute,
@@ -1243,7 +1243,7 @@ class GLMap(private val jsettings : Settings.jsonsettings) : InputAdapter() , Ap
 
         players?.forEach {
 
-            val (actor, x, y, dir) = it
+            val (actor, x, y, z ,  dir) = it
             val (sx, sy) = Vector2(x, y).mapToWindow()
             val playerStateGUID = actorWithPlayerState[actor.netGUID] ?: return@forEach
             val PlayerState = actors[playerStateGUID] as? PlayerState ?: return@forEach
@@ -1360,7 +1360,7 @@ class GLMap(private val jsettings : Settings.jsonsettings) : InputAdapter() , Ap
 
     fun ShapeRenderer.drawPlayer(pColor : Color?, actorInfo : renderInfo)
     {
-        val (actor, x, y, z,dir) = actorInfo
+        val (actor, x, y, z, dir) = actorInfo
         if (!clipBound.contains(x, y)) return
         val zoom = camera.zoom
         val backgroundRadius = (playerRadius + 2000f) * zoom
@@ -1507,7 +1507,7 @@ class GLMap(private val jsettings : Settings.jsonsettings) : InputAdapter() , Ap
 
     private fun SpriteBatch.drawVehicles(vehicles : ArrayList<renderInfo>?)
     {
-        vehicles?.forEach { (actor, x, y,z, dir) ->
+        vehicles?.forEach { (actor, x, y, z, dir) ->
             if (!clipBound.contains(x, y)) return@forEach
             val icon = vehicleIcons[actor.type] ?: return
 
@@ -1888,7 +1888,9 @@ class GLMap(private val jsettings : Settings.jsonsettings) : InputAdapter() , Ap
             val equippedWeapons = actorHasWeapons[actor.netGUID]
             val df = DecimalFormat("###.#")
             var weapon = ""
-
+            val specCount = spectatedCount[actor.netGUID] ?:0
+            if(specCount > 0)
+                println("${name}'s count = ${specCount}")
             if (equippedWeapons != null)
             {
                 for (w in equippedWeapons)
