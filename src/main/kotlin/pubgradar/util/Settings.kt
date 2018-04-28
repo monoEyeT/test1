@@ -123,7 +123,8 @@ class Settings
            val PainKiller : Boolean = true,
            val EnergyDrink : Boolean = true,
            val Syringe : Boolean = true,
-
+           // FUEL
+           val JerryCan : Boolean = true,
            //
            // Attachments
            //
