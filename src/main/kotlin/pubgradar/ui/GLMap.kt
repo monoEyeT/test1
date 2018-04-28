@@ -1851,12 +1851,12 @@ class GLMap(private val jsettings : Settings.jsonsettings) : InputAdapter() , Ap
             if(itemSetting.contains(items) == false) println(items+"Setting is NULL")
             if((filterEnableItem ==1)|| itemSetting.contains(items)&&itemSetting[items]==true) {
                 val strtemp =
-                when {
-                    itemHeight > (selfCoords.z + 200)-> "A"
-                    itemHeight < (selfCoords.z - 100) -> "V"
-                    else -> "o"
+                        when {
+                            itemHeight > (selfCoords.z + 200)-> "A"
+                            itemHeight < (selfCoords.z - 100) -> "V"
+                            else -> "o"
 
-                }
+                        }
                 printText(spriteBatch,itemFont,sx, windowHeight-sy, -totRot,strtemp)
             }
         }
@@ -1998,8 +1998,12 @@ class GLMap(private val jsettings : Settings.jsonsettings) : InputAdapter() , Ap
                                     strTemp = "GETTING REVIVED"
                                 }
                                 else -> {
+
                                     fonttemp = hpgreen
-                                    strTemp = "ALIVE"
+                                    if(health <= 0)
+                                        strTemp = "DEAD"
+                                    else
+                                        strTemp = "ALIVE"
                                 }
 
                             }
