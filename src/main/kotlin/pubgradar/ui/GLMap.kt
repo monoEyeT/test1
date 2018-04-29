@@ -2049,7 +2049,7 @@ class GLMap(private val jsettings : Settings.jsonsettings) : InputAdapter() , Ap
                         zDiff ="^^"
                     else if(z < (selfCoords.z + 400) && z > (selfCoords.z + 200))
                         zDiff ="^"
-                    else if(z > (selfCoords.z - 300) && z < v(selfCoords.z - 100))
+                    else if(z > (selfCoords.z - 300) && z < (selfCoords.z - 100))
                         zDiff = "v"
                     else if(z <= (selfCoords.z - 300))
                         zDiff = "vv"
