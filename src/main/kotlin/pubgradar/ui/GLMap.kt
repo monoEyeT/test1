@@ -1860,8 +1860,8 @@ class GLMap(private val jsettings : Settings.jsonsettings) : InputAdapter() , Ap
             if((filterEnableItem ==1)|| itemSetting.contains(items)&&itemSetting[items]==true) {
                 val strtemp =
                         when {
-                            itemHeight > (selfCoords.z + 200)-> "A"
-                            itemHeight < (selfCoords.z - 100) -> "V"
+                            itemHeight > (selfCoords.z + 200)-> "^"
+                            itemHeight < (selfCoords.z - 100) -> "v"
                             else -> "o"
 
                         }
@@ -2041,8 +2041,8 @@ class GLMap(private val jsettings : Settings.jsonsettings) : InputAdapter() , Ap
                 3 -> {
 
                             when {
-                                (z > (selfCoords.z + 200)) -> zDiff ="A"
-                                (z < (selfCoords.z - 100)) ->zDiff = "V"
+                                (z > (selfCoords.z + 200)) -> zDiff ="^"
+                                (z < (selfCoords.z - 100)) ->zDiff = "v"
                                 else ->zDiff = "o"
                             }
                     //println("s,o = ${selfCoords.x},${selfCoords.y},${selfCoords.z}\n ${x},${y},${z}")

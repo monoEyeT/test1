@@ -92,7 +92,7 @@ object GameStateCMD : GameListener
           42   -> MatchElapsedMinutes = propertyInt() //MatchElapsedMinutes
           43   -> propertyFloat() //MatchElapsedTimeSec
           44   -> propertyString() //MatchId
-          45   -> propertyString() //MatchShortGuid
+         // 45   -> propertyString() //MatchShortGuid
           46   -> readInt(3) //MatchStartType
           47   -> propertyFloat() //NextRespawnTimeSeconds 
           48   -> NumAlivePlayers = propertyInt()

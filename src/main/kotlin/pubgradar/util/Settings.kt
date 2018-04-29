@@ -31,15 +31,15 @@ class Settings
            //
            // Scales
            //
-           val itemScale : Float = 26f ,
-           val staticItemScale : Float = 200f ,
+           val itemScale : Float = 24f ,
+           val staticItemScale : Float = 180f ,
            val mapMarkerScale : Float = 150f ,
            val airDropScale : Float = 250f ,
-           val vehicleScale : Float = 29f ,
+           val vehicleScale : Float = 30f ,
            val vehicleScalemini : Float = 46f ,
            val planeScale : Float = 350f ,
            val grenadeScale : Float = 15f ,
-           val corpseScale : Float = 45f ,
+           val corpseScale : Float = 50f ,
            val redzoneBombScale : Float = 30f ,
            val aimTimeThreshold : Int = 2000 ,
 
@@ -261,11 +261,11 @@ class Settings
            val littleFont_color : Color = Color.WHITE ,
 
            val nameFont_size : Int = 15 ,
-           val nameFont_color : Color = Color.RED ,
+           val nameFont_color : Color = Color.WHITE ,
            val distanceFont_size : Int = 15 ,
            val distanceFont_color : Color = Color.RED ,
 
-           val itemFont_size : Int = 15 ,
+           val itemFont_size : Int = 13 ,
            val itemFont_color : Color = Color.WHITE ,
 
            val compaseFont_size : Int = 10 ,
