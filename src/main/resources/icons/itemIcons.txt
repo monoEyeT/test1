@@ -1,5 +1,5 @@
 item-sprites.png
-size: 576, 896
+size: 640, 960
 format: RGBA8888
 filter: Linear,Linear
 repeat: none

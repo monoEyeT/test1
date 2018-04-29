@@ -560,13 +560,13 @@ class GLMap(private val jsettings : Settings.jsonsettings) : InputAdapter() , Ap
         redzoneBombIcon = pawnAtlas.findRegion("redzoneBomb")
         vehicleIcons = mapOf(
                 TwoSeatBoat to pawnAtlas.findRegion("AquaRail"),
-            SixSeatBoat to pawnAtlas.findRegion("boat"),
+                SixSeatBoat to pawnAtlas.findRegion("boat"),
                 Dacia to pawnAtlas.findRegion("dacia"),
                 Uaz to pawnAtlas.findRegion("uaz"),
                 Pickup to pawnAtlas.findRegion("pickup"),
                 Buggy to pawnAtlas.findRegion("buggy"),
-            Bike to pawnAtlas.findRegion("bike"),
-            SideCar to pawnAtlas.findRegion("bike"),
+                Bike to pawnAtlas.findRegion("bike"),
+                SideCar to pawnAtlas.findRegion("bike"),
                 Bus to pawnAtlas.findRegion("bus"),
                 Plane to pawnAtlas.findRegion("plane")
         )
@@ -662,6 +662,7 @@ class GLMap(private val jsettings : Settings.jsonsettings) : InputAdapter() , Ap
         param.borderColor = Color.BLACK
         param.borderWidth = 0.5f
         nameFont = generator.generateFont(param)
+        param.characters = DEFAULT_CHARS
         param.color = Color(0.3f, 0.9f, 1f, 1f)
         param.borderColor = Color.BLACK
         param.borderWidth = 0.5f
@@ -921,14 +922,13 @@ class GLMap(private val jsettings : Settings.jsonsettings) : InputAdapter() , Ap
 
             var offset = 0f
             if (isTeamMatch) {
-
                 spriteBatch.draw(hubpanel, windowWidth - 650 , windowHeight - 60f)
-                hubFontShadow.draw(spriteBatch, "SECS", windowWidth - 595f , windowHeight - 29f)
-                hubFont.draw(spriteBatch, "$timeText", windowWidth - 620  - layout.width / 2, windowHeight - 29f)
+                hubFontShadow.draw(spriteBatch, "SECS", windowWidth - 605 , windowHeight - 29f)
+                hubFont.draw(spriteBatch, "$timeText", windowWidth - 630  - layout.width / 2, windowHeight - 29f)
             }else {
                 spriteBatch.draw(hubpanel, windowWidth - 650 + 130f, windowHeight - 60f)
-                hubFontShadow.draw(spriteBatch, "SECS", windowWidth - 595f + 128f, windowHeight - 29f)
-                hubFont.draw(spriteBatch, "$timeText", windowWidth - 620 + 128f - layout.width / 2, windowHeight - 29f)
+                hubFontShadow.draw(spriteBatch, "SECS", windowWidth - 605 + 128f, windowHeight - 29f)
+                hubFont.draw(spriteBatch, "$timeText", windowWidth - 630 + 128f - layout.width / 2, windowHeight - 29f)
             }
             // ITEM ESP FILTER PANEL
             //  spriteBatch.draw(hubpanelblank, 30f, windowHeight - 60f)
@@ -1749,7 +1749,7 @@ class GLMap(private val jsettings : Settings.jsonsettings) : InputAdapter() , Ap
             "Item_Attach_Weapon_Stock_SniperRifle_CheekPad_C"	to	jsettings.CheekSR	,
             "Item_Attach_Weapon_Stock_SniperRifle_BulletLoops_C"	to	jsettings.LoopsSR	,
             "Item_Attach_Weapon_Upper_PM2_01_C" to jsettings.PM2,
-           // "Item_Attach_Weapon_Muzzle_Duckbill_C" to jsettings.Duckbill,
+            // "Item_Attach_Weapon_Muzzle_Duckbill_C" to jsettings.Duckbill,
             "Item_Attach_Weapon_Lower_ThumbGrip_C" to jsettings.ThumbGrip,
             "Item_Attach_Weapon_Lower_LightweightForeGrip_C" to jsettings.LightWeightForeGrip,
             "Item_Attach_Weapon_Lower_HalfGrip_C" to jsettings.HalfGrip,
@@ -1878,6 +1878,10 @@ class GLMap(private val jsettings : Settings.jsonsettings) : InputAdapter() , Ap
     }
     fun drawPlayerInfos(players : MutableList<renderInfo>?)
     {
+        var cosd = MathUtils.cos(Math.toRadians((360-totRot).toDouble()).toFloat())
+        var sind = MathUtils.sin(Math.toRadians((360-totRot).toDouble()).toFloat())
+        var fx = 20 * cosd - 20*sind
+        var fy = 20 * cosd + 20*sind
 
         players?.forEach {
             val (actor , x , y , z, dir1) = it
@@ -2040,18 +2044,27 @@ class GLMap(private val jsettings : Settings.jsonsettings) : InputAdapter() , Ap
                 }
                 3 -> {
 
-                            when {
-                                (z > (selfCoords.z + 200)) -> zDiff ="^"
-                                (z < (selfCoords.z - 100)) ->zDiff = "v"
-                                else ->zDiff = "o"
-                            }
+
+                    if(z >= (selfCoords.z + 400))
+                        zDiff ="^^"
+                    else if(z < (selfCoords.z + 400) && z > (selfCoords.z + 200))
+                        zDiff ="^"
+                    else if(z > (selfCoords.z - 300) && z < v
+
+
+
+
+                    (selfCoords.z - 100))
+                        zDiff = "v"
+                    else if(z <= (selfCoords.z - 300))
+                        zDiff = "vv"
+                    else
+                        zDiff = "o"
+
                     //println("s,o = ${selfCoords.x},${selfCoords.y},${selfCoords.z}\n ${x},${y},${z}")
                     //checkPlayerLOC(players)
                     var str1 = "${zDiff}, ${distance}m, ${zDiff}"
-                    var cosd = MathUtils.cos(Math.toRadians((360-totRot).toDouble()).toFloat())
-                    var sind = MathUtils.sin(Math.toRadians((360-totRot).toDouble()).toFloat())
-                    var fx = 20 * cosd - 20*sind
-                    var fy = 20 * cosd + 20*sind
+
 
                     if (filterEnableRotate == 1) {
                         //printText(spriteBatch, nameFont, sx + 20, windowHeight - sy + 20, -totRot, str1)
@@ -2063,9 +2076,6 @@ class GLMap(private val jsettings : Settings.jsonsettings) : InputAdapter() , Ap
                     var strHealth = ("\nH: ${df.format(health)}")
                     if (filterEnableRotate == 1) {
                         when {
-//                            healthText > 80f -> printText(spriteBatch, hpgreen, sx + 20, windowHeight - sy + 20, -totRot, strHealth)
-//                            healthText > 33f -> printText(spriteBatch, hporange, sx + 20, windowHeight - sy + 20, -totRot, strHealth)
-//                            else -> printText(spriteBatch, hpred, sx + 20, windowHeight - sy + 20, -totRot, strHealth)
                             healthText > 80f -> printText(spriteBatch, hpgreen, sx + fx, windowHeight - sy + fy, -totRot, strHealth)
                             healthText > 33f -> printText(spriteBatch, hporange, sx + fx, windowHeight - sy + fy, -totRot, strHealth)
                             else -> printText(spriteBatch, hpred, sx + fx, windowHeight - sy + fy, -totRot, strHealth)
