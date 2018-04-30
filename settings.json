@@ -12,7 +12,7 @@
   "firingLineLength": 20000.0,
   "itemZoomThreshold": 0.08,
   "airDropTextScale": 1000.0,
-  "itemScale": 24.0,
+  "itemScale": 26.0,
   "staticItemScale": 180.0,
   "mapMarkerScale": 150.0,
   "airDropScale": 250.0,

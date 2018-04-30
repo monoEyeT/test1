@@ -31,8 +31,8 @@ class Settings
            //
            // Scales
            //
-           val itemScale : Float = 26f ,
-           val staticItemScale : Float = 180f ,
+           val itemScale : Float = 27f ,
+           val staticItemScale : Float = 30f ,
            val mapMarkerScale : Float = 150f ,
            val airDropScale : Float = 250f ,
            val vehicleScale : Float = 30f ,
