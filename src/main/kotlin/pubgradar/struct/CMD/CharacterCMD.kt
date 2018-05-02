@@ -33,8 +33,8 @@ object CharacterCMD : GameListener
 
     fun process(actor : Actor , bunch : Bunch , repObj : NetGuidCacheObject? , waitingHandle : Int , data : HashMap<String , Any?>) : Boolean
     {
-    //try
-    //{
+    try
+    {
       actor as Character
       with(bunch) {
         when (waitingHandle)
@@ -170,11 +170,11 @@ object CharacterCMD : GameListener
         }
         return true
       }
-    //}
-    //catch (e : Exception)
-    //{
-    //  debugln { ("CharacterCMD is throwing somewhere: $e ${e.stackTrace} ${e.message} ${e.cause}") }
-    //}
-    //return false
+    }
+    catch (e : Exception)
+    {
+      debugln { ("CharacterCMD is throwing somewhere: $e ${e.stackTrace} ${e.message} ${e.cause}") }
+    }
+    return false
     }
 }

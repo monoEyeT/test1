@@ -11,8 +11,8 @@ object TeamCMD
 
    fun process(actor : Actor , bunch : Bunch , repObj : NetGuidCacheObject? , waitingHandle : Int , data : HashMap<String , Any?>) : Boolean
   {
-    //try
-    //{
+    try
+    {
       actor as Team
       with(bunch) {
         //      println("${actor.netGUID} $waitingHandle")
@@ -41,11 +41,11 @@ object TeamCMD
         }
         return true
       }
-    //}
-    //catch (e : Exception)
-    //{
-    //  debugln { ("TeamCMD is throwing somewhere: $e ${e.stackTrace} ${e.message} ${e.cause}") }
-    //}
-    //return false
+    }
+    catch (e : Exception)
+    {
+      debugln { ("TeamCMD is throwing somewhere: $e ${e.stackTrace} ${e.message} ${e.cause}") }
+    }
+    return false
   }
 }

@@ -142,7 +142,7 @@ class GLMap(private val jsettings : Settings.jsonsettings) : InputAdapter() , Ap
         config.setWindowedMode(initialWindowWidth.toInt(), initialWindowWidth.toInt())
         config.setResizable(true)
         config.setBackBufferConfig(8, 8, 8, 8, 16, 1, 2)
-        //config.setIdleFPS(60)
+        config.setIdleFPS(60)
         Lwjgl3Application(this, config)
     }
     lateinit var oriMatrixMap:Matrix4
@@ -685,8 +685,9 @@ class GLMap(private val jsettings : Settings.jsonsettings) : InputAdapter() , Ap
     }
 
     private val dirUnitVector = Vector2(1f, 0f)
-
+    var renderCount = 0
     override fun render() {
+        renderCount += 1
         Gdx.gl.glClearColor(bgColor.r, bgColor.g, bgColor.b, bgColor.a)
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT)
         if (gameStarted) {
@@ -815,6 +816,7 @@ class GLMap(private val jsettings : Settings.jsonsettings) : InputAdapter() , Ap
             }
             list?.add(visualActor)
         }
+
         clipBound.set(mapRegion)
         camera = mapCamera
         camera.update()
@@ -834,7 +836,6 @@ class GLMap(private val jsettings : Settings.jsonsettings) : InputAdapter() , Ap
             drawGrenades(grenades)
             drawAirDrop()
         }
-
 
 
 
@@ -873,6 +874,7 @@ class GLMap(private val jsettings : Settings.jsonsettings) : InputAdapter() , Ap
             drawItemText()
 
         }
+
         paint(UICamera.combined) {
             val timeHints = if (RemainingTime > 0) "${RemainingTime}s"
             else "${MatchElapsedMinutes}min"
@@ -1161,6 +1163,7 @@ class GLMap(private val jsettings : Settings.jsonsettings) : InputAdapter() , Ap
             drawPlayersH(players)
 
         }
+
         Gdx.gl.glDisable(GL20.GL_BLEND)
         clipBound.set(miniMapRegion)
         camera = miniMapCamera
@@ -1170,7 +1173,9 @@ class GLMap(private val jsettings : Settings.jsonsettings) : InputAdapter() , Ap
         {
             drawMiniMap(parachutes, players, vehicles)
         }
+
     }
+
 
     private fun ShapeRenderer.drawPlayersH(players : ArrayList<renderInfo>?)
     {
@@ -1251,11 +1256,6 @@ class GLMap(private val jsettings : Settings.jsonsettings) : InputAdapter() , Ap
             val selfStateGUID = actorWithPlayerState[selfID] ?: return@forEach
             val selfState = actors[selfStateGUID] as? PlayerState ?: return@forEach
 
-
-            // val teamId = isTeamMate(actor)
-            //println(teamId)
-            // if (teamId > 0) {
-            //teamId = isTeamMate(actors[attach])
             if (PlayerState.teamNumber == selfState.teamNumber)
             {
                 // Can't wait for the "Omg Players don't draw issues
@@ -2349,31 +2349,6 @@ class GLMap(private val jsettings : Settings.jsonsettings) : InputAdapter() , Ap
         val zoom = camera.zoom
         val backgroundRadius = (playerRadius + 2000f) * zoom
 
-//        val attach = actor.attachChildren.firstOrNull()
-//        val teamId = isTeamMate(actor)
-//        color = when {
-//            teamId >= 0 -> teamColor[teamId]
-//            attach == null -> pColor
-//            attach == selfID -> selfColor
-//            else -> {
-//                val teamId = isTeamMate(actors[attach])
-//                if (teamId >= 0)
-//                    teamColor[teamId]
-//                else
-//                    pColor
-//            }
-//        }
-//        if (actor is Character)
-//            color = when {
-//                actor.isGroggying -> {
-//                    GRAY
-//                }
-//                actor.isReviving -> {
-//                    WHITE
-//                }
-//                else -> color
-//            }
-
         if (actor is Character)
         {//draw health
             var health = if (actor.health <= 0f) actor.groggyHealth else actor.health
@@ -2458,6 +2433,7 @@ class GLMap(private val jsettings : Settings.jsonsettings) : InputAdapter() , Ap
         mapMiramar.dispose()
         mapSavage.dispose()
         nameBlueFont.dispose()
+        nameGoldFont.dispose()
         nameFontShadow.dispose()
         carePackage.texture.dispose()
         itemAtlas.dispose()

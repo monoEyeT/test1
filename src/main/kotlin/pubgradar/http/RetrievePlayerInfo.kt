@@ -86,7 +86,7 @@ class PlayerProfile {
               baseCount.compute(name) { _, count ->
                 count!! - 1
               }
-              Thread.sleep(1000)
+              Thread.sleep(2000)
             } else {
               completedPlayerInfo[name] = playerInfo
               pendingPlayerInfo.remove(name)

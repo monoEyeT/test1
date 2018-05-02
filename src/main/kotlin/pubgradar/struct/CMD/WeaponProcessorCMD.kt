@@ -11,8 +11,8 @@ object WeaponProcessorCMD
 {
    fun process(actor : Actor , bunch : Bunch , repObj : NetGuidCacheObject? , waitingHandle : Int , data : HashMap<String , Any?>) : Boolean
    {
-    //try
-    //{
+    try
+    {
       with(bunch) {
         when (waitingHandle)
         {
@@ -24,12 +24,16 @@ object WeaponProcessorCMD
             actorHasWeapons.compute(actor.owner!!) { _, equippedWeapons ->
               val equippedWeapons = equippedWeapons?.resize(arraySize) ?: DynamicArray(arraySize)
               var index = readIntPacked()
+                var loopcount =0
               while (index != 0)
               {
+                  loopcount +=1
                 val i = index - 1
                 val (netguid, _) = readObject()
                 equippedWeapons[i] = netguid
                 index = readIntPacked()
+                  if(loopcount %1000 == 0 )
+                      println("wpProc: ${loopcount}");
               }
               equippedWeapons
             }
@@ -38,11 +42,11 @@ object WeaponProcessorCMD
         }
         return true
       }
-    //}
-    //catch (e : Exception)
-    //{
-    //  debugln { ("WeaponProcessor is throwing somewhere: $e ${e.stackTrace} ${e.message} ${e.cause}") }
-    //}
-    //return false
+    }
+    catch (e : Exception)
+    {
+      debugln { ("WeaponProcessor is throwing somewhere: $e ${e.stackTrace} ${e.message} ${e.cause}") }
+    }
+    return false
   }
 }

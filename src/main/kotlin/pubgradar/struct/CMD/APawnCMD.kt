@@ -11,8 +11,8 @@ object APawnCMD
 {
    fun process(actor : Actor , bunch : Bunch , repObj : NetGuidCacheObject? , waitingHandle : Int , data : HashMap<String , Any?>) : Boolean
   {
-    //try
-    //{
+    try
+    {
       with(bunch) {
         when (waitingHandle)
         {
@@ -42,11 +42,11 @@ object APawnCMD
         }
         return true
       }
-    //}
-    //catch (e : Exception)
-    //{
-    //  debugln { ("APawnCMD is throwing somewhere: $e ${e.stackTrace} ${e.message} ${e.cause}") }
-    //}
-    //return false
+    }
+    catch (e : Exception)
+    {
+      debugln { ("APawnCMD is throwing somewhere: $e ${e.stackTrace} ${e.message} ${e.cause}") }
+    }
+    return false
   }
 }

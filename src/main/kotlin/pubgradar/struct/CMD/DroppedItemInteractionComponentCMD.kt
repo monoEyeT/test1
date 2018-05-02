@@ -13,8 +13,8 @@ object DroppedItemInteractionComponentCMD
 {
    fun process(actor : Actor , bunch : Bunch , repObj : NetGuidCacheObject? , waitingHandle : Int , data : HashMap<String , Any?>) : Boolean
    {
-    //try
-    //{
+    try
+    {
       with(bunch) {
         when (waitingHandle)
         {
@@ -26,10 +26,14 @@ object DroppedItemInteractionComponentCMD
           {//TArray<class USceneComponent*> AttachChildren
             readUInt16()
             var index = readIntPacked()
+            var loopcount = 0
             while (index != 0)
             {
               readObject()
               index = readIntPacked()
+              loopcount +=1
+              if(loopcount %1000 == 0 )
+                println("DroppedItem: ${loopcount}");
             }
           }
           4    -> readObject() //AttachParent
@@ -70,11 +74,11 @@ object DroppedItemInteractionComponentCMD
         }
       }
       return true
-    //}
-    //catch (e : Exception)
-    //{
-    //  debugln { ("DroppedItemInteractionComp is throwing somewhere: $e ${e.stackTrace} ${e.message} ${e.cause}") }
-    //}
-    //return false
+    }
+    catch (e : Exception)
+    {
+      debugln { ("DroppedItemInteractionComp is throwing somewhere: $e ${e.stackTrace} ${e.message} ${e.cause}") }
+    }
+    return false
    }
 }

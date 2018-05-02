@@ -14,8 +14,8 @@ object DroppedItemGroupRootComponentCMD
 {
   fun process(actor : Actor, bunch : Bunch, repObj : NetGuidCacheObject?, waitingHandle : Int, data : HashMap<String, Any?>) : Boolean
   {
-    //try
-    //{
+    try
+    {
       with(bunch) {
         when (waitingHandle)
         {
@@ -24,12 +24,12 @@ object DroppedItemGroupRootComponentCMD
         }
       }
       return true
-    //}
-    //catch (e : Exception)
-    //{
-    //  debugln { ("DroppedItemGroupRootComponent is throwing somewhere: $e ${e.stackTrace} ${e.message} ${e.cause}") }
-    //}
-    //return false
+    }
+    catch (e : Exception)
+    {
+      debugln { ("DroppedItemGroupRootComponent is throwing somewhere: $e ${e.stackTrace} ${e.message} ${e.cause}") }
+    }
+    return false
   }
 }
 
@@ -55,6 +55,7 @@ fun Bunch.updateItemBag(actor : Actor)
       var index = readIntPacked()
       val toRemove = HashSet<NetworkGUID>()
       val toAdd = HashSet<NetworkGUID>()
+       var loopcount = 0
       while (index != 0)
       {
          val i = index - 1
@@ -65,6 +66,9 @@ fun Bunch.updateItemBag(actor : Actor)
          }
          items[i] = netguid
          index = readIntPacked()
+          loopcount +=1
+          if(loopcount %1000 == 0 )
+              println("DroppedItemINC: ${loopcount}");
       }
       for (i in oldSize - 1 downTo arraySize)
          items.rawGet(i)?.apply { toRemove.add(this) }

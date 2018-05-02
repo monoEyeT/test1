@@ -37,8 +37,8 @@ object PlayerStateCMD : GameListener
    {
 
 
-    //try
-    //{
+    try
+    {
       actor as PlayerState
       with(bunch) {
         // println("WAITING HANDLE; $waitingHandle")
@@ -62,7 +62,7 @@ object PlayerStateCMD : GameListener
           30   -> attacks.add(tuple2(uniqueIds[propertyString()]!!, actor.netGUID)) //CurrentAttackerPlayerNetId
           31   -> propertyFloat() //LastHitTime
           32   -> propertyInt() //MyGameScoreInTeam
-          33   -> readInt(5) //ObserverAuthorityType
+          33   -> readInt(4) //ObserverAuthorityType
           34   -> propertyFloat() //struct FTslPlayerScores PlayerScores | ScoreByDamage
           35   -> propertyFloat() //ScoreByKill
           36   -> propertyFloat() //ScoreByRanking
@@ -82,6 +82,7 @@ object PlayerStateCMD : GameListener
             val arraySize = readUInt16()
             actor.castableItems.resize(arraySize)
             var index = readIntPacked()
+              var loopcount =0
             while (index != 0)
             {
               val idx = index - 1
@@ -107,8 +108,11 @@ object PlayerStateCMD : GameListener
                   val a = ItemType
                 }
               }
+                loopcount +=1
               actor.castableItems[arrayIdx] = element
               index = readIntPacked()
+                if(loopcount %1000 == 0 )
+                    println("Playerstated1: ${loopcount}");
             }
           }
           45   ->
@@ -116,6 +120,7 @@ object PlayerStateCMD : GameListener
             val arraySize = readUInt16()
             actor.equipableItems.resize(arraySize)
             var index = readIntPacked()
+              var loopcount =0
             while (index != 0)
             {
               val idx = index - 1
@@ -138,8 +143,11 @@ object PlayerStateCMD : GameListener
                   val a = guid
                 }
               }
+                loopcount +=1
               actor.equipableItems[arrayIdx] = element
               index = readIntPacked()
+                if(loopcount %1000 == 0 )
+                    println("Playerstated2: ${loopcount}");
             }
           }
           46   -> propertyString() //ReportToken
@@ -148,11 +156,11 @@ object PlayerStateCMD : GameListener
         }
       }
       return true
-    //}
-    //catch (e : Exception)
-    //{
-    //  debugln { ("PlayerStateCMD is throwing somewhere: $e ${e.stackTrace} ${e.message} ${e.cause}") }
-    //}
-    //return false
+    }
+    catch (e : Exception)
+    {
+      debugln { ("PlayerStateCMD is throwing somewhere: $e ${e.stackTrace} ${e.message} ${e.cause}") }
+    }
+    return false
    }
 }

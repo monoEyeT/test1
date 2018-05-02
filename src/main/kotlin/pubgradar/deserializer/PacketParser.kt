@@ -118,7 +118,8 @@ fun proc_raw_packet(raw : ByteArray, client : Boolean = true)
                 lastByte = plaintext.last().toInt() and 0xFF
                 if (lastByte != 0)
                 {
-                    bitsize = (plaintext.size * 8) - 2
+                    //bitsize = (plaintext.size * 8) - 2
+                    bitsize = (plaintext.size * 8) - 1
                     while ((lastByte and 0x80) == 0)
                     {
                         lastByte *= 2

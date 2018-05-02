@@ -10,8 +10,8 @@ object VehicleCMD
 {
    fun process(actor : Actor , bunch : Bunch , repObj : NetGuidCacheObject? , waitingHandle : Int , data : HashMap<String , Any?>) : Boolean
    {
-    //try
-    //{
+    try
+    {
       actor as Vehicle
       with(bunch) {
         when (waitingHandle)
@@ -25,11 +25,11 @@ object VehicleCMD
         }
         return true
       }
-    //}
-    //catch (e : Exception)
-    //{
-    //  debugln { ("VehicleCMD is throwing somewhere: $e ${e.stackTrace} ${e.message} ${e.cause}") }
-    //}
-    //return false
+    }
+    catch (e : Exception)
+    {
+      debugln { ("VehicleCMD is throwing somewhere: $e ${e.stackTrace} ${e.message} ${e.cause}") }
+    }
+    return false
    }
 }
